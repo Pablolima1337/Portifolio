@@ -1,41 +1,37 @@
---------------------------------------------------------
-████   ███  ████  █████ ███ █████  ███  █     ███  ███  
-█   █ █   █ █   █   █    █  █     █   █ █      █  █   █ 
-████  █   █ ████    █    █  ████  █   █ █      █  █   █ 
-█     █   █ █  █    █    █  █     █   █ █      █  █   █ 
-█      ███  █   █   █   ███ █      ███  █████ ███  ███  
---------------------------------------------------------
+# PABLO — Digital Portfolio
 
-Color: {
-    #0F0F0F;
-    #202020;
-    #5DD62C;
-    #337418;
-    #F8F8F8;
-    #DC2626;
-    #374151;
-    #D1D5DB
-}
+Portfólio pessoal desenvolvido para apresentar projetos, experimentos e trabalhos relacionados a desenvolvimento, automação, dados e tecnologia.
 
-O site terá um design estético que relembre as tecnologias si-fi's dos anos 90 e 2000 
+O projeto utiliza uma estética inspirada em interfaces digitais e sistemas computacionais dos anos 90/2000, combinando elementos retro-futuristas com uma interface moderna e minimalista.
 
-BACKGROUND
-#07090C
+## Tecnologias
 
-PANEL
-#10151C
+- HTML5
+- CSS3
+- JavaScript
+- Git
+- GitHub
 
-CYAN
-#00E5FF
+## Estrutura
 
-GREEN
-#7CFF00
-
-PURPLE
-#8A5CFF
-
-TEXT
-#D7E3EA
-
-MUTED
-#60717C
+```text
+portfolio/
+├── index.html
+├── assets/
+│   ├── audio/
+│   ├── images/
+│   └── icons/
+├── css/
+│   ├── reset.css
+│   ├── variables.css
+│   ├── base.css
+│   ├── components.css
+│   ├── animations.css
+│   └── responsive.css
+├── js/
+│   ├── main.js
+│   ├── audio/
+│   ├── effects/
+│   ├── components/
+│   └── data/
+└── README.md
