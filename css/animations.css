@@ -1,0 +1,179 @@
+/*ANIMATIONS*/
+
+
+/*CURSOR / BLINK*/
+
+@keyframes cursor-blink {
+    0%,
+    45% {
+        opacity: 1;
+    }
+    46%,
+    100% {
+        opacity: 0;
+    }
+}
+
+
+/*UBTLE GLOW*/
+
+@keyframes subtle-glow {
+    0% {
+        text-shadow:
+            0 0 4px rgba(57, 255, 136, 0.15);
+    }
+    50% {
+        text-shadow:
+            0 0 12px rgba(57, 255, 136, 0.30);
+    }
+    100% {
+        text-shadow:
+            0 0 4px rgba(57, 255, 136, 0.15);
+    }
+}
+
+
+/*CRT FLICKER*/
+
+@keyframes crt-flicker {
+    0%,
+    100% {
+        opacity: 0.035;
+    }
+    50% {
+        opacity: 0.05;
+    }
+    75% {
+        opacity: 0.025;
+    }
+}
+
+
+/*UTILITY ANIMATIONS*/
+.animate-glow {
+    animation: subtle-glow 3s ease-in-out infinite;
+}
+.animate-glitch {
+    animation: glitch-shift 0.2s steps(2, end);
+}
+
+/* Page transition */
+
+body {
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+body.page-ready {
+    opacity: 1;
+}
+body.page-transition {
+    opacity: 0;
+}
+
+/* Glitch */
+
+.hero__title[data-glitch] {
+    position: relative;
+}
+
+.hero__title[data-glitch]::before,
+.hero__title[data-glitch]::after {
+    content: attr(data-glitch);
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.hero__title[data-glitch].is-glitching::before {
+    opacity: 1;
+    color: #ff3158;
+    clip-path: inset(15% 0 65% 0);
+    transform: translate(-3px, 0);
+    animation: glitch-red 0.2s steps(2, end);
+}
+
+.hero__title[data-glitch].is-glitching::after {
+    opacity: 1;
+    color: #00ffff;
+    clip-path: inset(60% 0 15% 0);
+    transform: translate(3px, 0);
+    animation: glitch-cyan 0.2s steps(2, end);
+}
+
+@keyframes glitch-red {
+    0% {
+        clip-path: inset(80% 0 5% 0);
+    }
+    25% {
+        clip-path: inset(15% 0 65% 0);
+    }
+    50% {
+        clip-path: inset(45% 0 35% 0);
+    }
+    75% {
+        clip-path: inset(70% 0 10% 0);
+    }
+    100% {
+        clip-path: inset(0 0 100% 0);
+    }
+}
+
+@keyframes glitch-cyan {
+    0% {
+        clip-path: inset(5% 0 80% 0);
+    }
+    25% {
+        clip-path: inset(65% 0 15% 0);
+    }
+    50% {
+        clip-path: inset(30% 0 50% 0);
+    }
+    75% {
+        clip-path: inset(10% 0 70% 0);
+    }
+    100% {
+        clip-path: inset(100% 0 0 0);
+    }
+}
+
+/* CRT */
+
+@keyframes crt-flicker {
+    0% {
+        opacity: 0.75;
+    }
+    50% {
+        opacity: 0.82;
+    }
+    100% {
+        opacity: 0.78;
+    }
+}
+
+.crt-scanlines {
+    animation: crt-flicker 0.15s steps(2, end) infinite;
+}
+
+@keyframes crt-noise {
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(-2%, 1%);
+    }
+    50% {
+        transform: translate(1%, -2%);
+    }
+    75% {
+        transform: translate(2%, 1%);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+.crt-noise {
+    animation:
+        crt-noise 0.15s steps(2, end) infinite;
+}

@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta name="description" content="Pablo — Desenvolvedor, automação, dados e experimentos." />
+
+    <title>Pablo — Digital Portfolio</title>
+
+    <!--CSS-->
+
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/variables.css" />
+    <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" href="./css/components.css" />
+    <link rel="stylesheet" href="./css/animations.css" />
+    <link rel="stylesheet" href="./css/responsive.css" />
+  </head>
+
+  <body>
+    <div class="entry-screen" id="entry-screen">
+      <div class="entry-screen__content">
+        <span class="entry-screen__label tech-text"> AUDIO NOTICE </span>
+
+        <p class="entry-screen__text">Este site contém sons de interface. Para uma experiência completa, recomendamos o uso de fones.</p>
+
+        <button class="entry-screen__button tech-text" id="entry-button">CONTINUAR</button>
+      </div>
+    </div>
+
+    <div class="loading-screen" id="loading-screen">
+      <div class="loading-screen__content">
+        <span class="loading-screen__label tech-text"> Processando arquivos </span>
+
+        <div class="loading-bar">
+          <div class="loading-bar__progress"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="crt-scanlines"></div>
+    <div class="crt-noise"></div>
+    <!--INTERFACE-->
+    <div id="app" class="app-hidden">
+      <!--HEADER-->
+
+      <header class="header">
+        <div class="container header__inner">
+          <a href="#home" class="logo tech-text"> PABLO </a>
+          <nav class="navigation" aria-label="Navegação principal">
+            <a href="#about"> Sobre </a>
+            <a href="#projects"> Projetos </a>
+            <a href="#lab"> Lab </a>
+            <a href="#contact"> Contato </a>
+          </nav>
+        </div>
+      </header>
+
+      <!--MAIN-->
+
+      <main>
+        <!--HERO-->
+
+        <section id="home" class="hero">
+          <div class="container hero__content">
+            <span class="hero__label tech-text"> DIGITAL DEVELOPER </span>
+            <h1 class="hero__title" data-glitch="Pablo Lima">Pablo Lima</h1>
+            <p class="hero__description">Desenvolvimento, automação, dados e experimentos digitais.</p>
+          </div>
+        </section>
+
+        <!--ABOUT-->
+
+        <section id="about" class="section">
+          <div class="container">
+            <span class="section__label tech-text"> 01 / ABOUT </span>
+            <h2 class="section__title">Sobre mim</h2>
+            <p class="section__text">Desenvolvedor interessado em tecnologia, automação, dados, interfaces e criação de sistemas.</p>
+          </div>
+        </section>
+
+        <!--PROJECTS-->
+
+        <section id="projects" class="section">
+          <div class="container">
+            <span class="section__label tech-text"> 02 / PROJECTS </span>
+            <h2 class="section__title">Projetos</h2>
+            <div class="projects"></div>
+          </div>
+        </section>
+
+        <!--LAB-->
+
+        <section id="lab" class="section">
+          <div class="container">
+            <span class="section__label tech-text"> 03 / LAB </span>
+            <h2 class="section__title">Laboratório</h2>
+            <p class="section__text">Experimentos, protótipos, ideias e projetos em desenvolvimento.</p>
+          </div>
+        </section>
+
+        <!--CONTACT-->
+
+        <section id="contact" class="section">
+          <div class="container">
+            <span class="section__label tech-text"> 04 / CONTACT </span>
+            <h2 class="section__title">Contato</h2>
+            <p class="section__text">Vamos construir alguma coisa.</p>
+          </div>
+        </section>
+      </main>
+
+      <!--FOOTER-->
+
+      <footer class="footer">
+        <div class="container">
+          <span class="tech-text"> PABLO © 2026 </span>
+        </div>
+      </footer>
+    </div>
+
+    <!--AVASCRIPT-->
+
+    <script type="module" src="./js/main.js"></script>
+  </body>
+</html>

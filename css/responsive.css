@@ -1,0 +1,116 @@
+/* Tablet */
+
+@media (max-width: 900px) {
+    :root {
+        --space-xl: 5rem;
+    }
+    .navigation {
+        gap: 1.25rem;
+    }
+    .hero__title {
+        font-size: clamp(3.5rem, 12vw, 6rem);
+    }
+    .projects {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+    :root {
+        --header-height: 64px;
+        --space-md: 1.5rem;
+        --space-lg: 3rem;
+        --space-xl: 4rem;
+    }
+    .container {
+        width: min(calc(100% - 2rem), var(--container-width));
+    }
+    .header__inner {
+        gap: 1rem;
+    }
+    .logo {
+        font-size: 0.9rem;
+    }
+    .navigation {
+        gap: 0.8rem;
+    }
+    .navigation a {
+        font-size: 0.65rem;
+        letter-spacing: 0.04em;
+    }
+    .navigation a::after {
+        bottom: -5px;
+    }
+    .hero {
+        min-height: calc(100svh - var(--header-height));
+    }
+    .hero__content {
+        padding-top: var(--space-lg);
+        padding-bottom: var(--space-lg);
+    }
+    .hero__label {
+        font-size: 0.65rem;
+    }
+    .hero__title {
+        margin-bottom: 1rem;
+        font-size: clamp(3rem,18vw,5rem);
+        letter-spacing: -0.07em;
+    }
+    .hero__description {
+        max-width: 100%;
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+    .section {
+        padding-top: var(--space-xl);
+        padding-bottom: var(--space-xl);
+    }
+    .section__label {
+        font-size: 0.65rem;
+    }
+    .section__title {
+        font-size: 2rem;
+    }
+    .section__text {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+    .projects {
+        gap: 0.75rem;
+        margin-top: var(--space-lg);
+    }
+    .project-card {
+        min-height: 210px;
+        padding: var(--space-md);
+    }
+    .project-card__title {
+        font-size: 1.1rem;
+    }
+    .project-card__description {
+        font-size: 0.85rem;
+    }
+    .footer {
+        padding-top: var(--space-md);
+        padding-bottom: var(--space-md);
+    }
+}
+
+
+/* Celulares pequenos */
+
+@media (max-width: 400px) {
+    .navigation {
+        gap: 0.55rem;
+    }
+    .navigation a {
+        font-size: 0.58rem;
+    }
+    .hero__title {
+        font-size: 2.8rem;
+    }
+    .hero__description {
+        font-size: 0.9rem;
+    }
+}
