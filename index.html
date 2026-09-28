@@ -2,9 +2,7 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <meta name="description" content="Pablo — Desenvolvedor, automação, dados e experimentos." />
 
     <title>Pablo — Digital Portfolio</title>
@@ -20,32 +18,49 @@
   </head>
 
   <body>
-    <div class="entry-screen" id="entry-screen">
-      <div class="entry-screen__content">
-        <span class="entry-screen__label tech-text"> AUDIO NOTICE </span>
-
-        <p class="entry-screen__text">Este site contém sons de interface. Para uma experiência completa, recomendamos o uso de fones.</p>
-
-        <button class="entry-screen__button tech-text" id="entry-button">CONTINUAR</button>
+    <!-- Notificação de áudio -->
+    <section id="audio-notice" class="audio-notice">
+      <div class="audio-notice__window">
+        <header class="audio-notice__header">
+          <span class="audio-notice__title"> MENSAGEM DO SISTEMA </span>
+          <span class="audio-notice__status"> ● </span>
+        </header>
+        <div class="audio-notice__content">
+          <span class="audio-notice__label"> SAÍDA DE AUDIO DETECTADA </span>
+          <p>Esta experiencia contém áudio.</p>
+          <p>Fones de ouvido são recomendados.</p>
+        </div>
+        <footer class="audio-notice__footer">
+          <span class="audio-notice__hint"> AUDIO: ENABLED </span>
+          <button id="audio-continue" class="audio-notice__button" type="button">[ CONTINUE ]</button>
+        </footer>
       </div>
-    </div>
+    </section>
 
-    <div class="loading-screen" id="loading-screen">
-      <div class="loading-screen__content">
-        <span class="loading-screen__label tech-text"> Processando arquivos </span>
-
+    <!-- TELA DE CARREGAMENTO -->
+    <section id="loading-screen" class="loading-screen">
+      <div class="loading-content">
+        <div class="loading-header">
+          <span id="loading-status"> INITIALIZING... </span>
+          <span class="loading-system"> SYS::BOOT </span>
+        </div>
         <div class="loading-bar">
           <div class="loading-bar__progress"></div>
         </div>
+        <div class="loading-footer">
+          <span> SYSTEM INITIALIZATION </span>
+          <span id="loading-percent"> 0% </span>
+        </div>
       </div>
-    </div>
+    </section>
 
+    <!-- EFEITOS VISUAIS -->
     <div class="crt-scanlines"></div>
     <div class="crt-noise"></div>
+
     <!--INTERFACE-->
     <div id="app" class="app-hidden">
       <!--HEADER-->
-
       <header class="header">
         <div class="container header__inner">
           <a href="#home" class="logo tech-text"> PABLO </a>
@@ -59,10 +74,8 @@
       </header>
 
       <!--MAIN-->
-
       <main>
         <!--HERO-->
-
         <section id="home" class="hero">
           <div class="container hero__content">
             <span class="hero__label tech-text"> DIGITAL DEVELOPER </span>
@@ -72,7 +85,6 @@
         </section>
 
         <!--ABOUT-->
-
         <section id="about" class="section">
           <div class="container">
             <span class="section__label tech-text"> 01 / ABOUT </span>
@@ -81,8 +93,7 @@
           </div>
         </section>
 
-        <!--PROJECTS-->
-
+        <!--PROJETOS-->
         <section id="projects" class="section">
           <div class="container">
             <span class="section__label tech-text"> 02 / PROJECTS </span>
@@ -92,7 +103,6 @@
         </section>
 
         <!--LAB-->
-
         <section id="lab" class="section">
           <div class="container">
             <span class="section__label tech-text"> 03 / LAB </span>
@@ -101,8 +111,7 @@
           </div>
         </section>
 
-        <!--CONTACT-->
-
+        <!--CONTATO-->
         <section id="contact" class="section">
           <div class="container">
             <span class="section__label tech-text"> 04 / CONTACT </span>
@@ -113,7 +122,6 @@
       </main>
 
       <!--FOOTER-->
-
       <footer class="footer">
         <div class="container">
           <span class="tech-text"> PABLO © 2026 </span>
@@ -121,8 +129,7 @@
       </footer>
     </div>
 
-    <!--AVASCRIPT-->
-
+    <!--JAVASCRIPT-->
     <script type="module" src="./js/main.js"></script>
   </body>
 </html>
