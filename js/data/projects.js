@@ -6,9 +6,9 @@ export const projects = [
         description: "Assistente pessoal desenvolvido para interação por voz, automação e integração com ferramentas.",
         technologies: ["PYTHON", "AI", "VOICE"],
         images: [
-            "../../assets/images/projects/testes1/teste.jpg",
-            "../../assets/images/projects/testes1/teste2.jpg",
-            "../../assets/images/projects/testes1/teste3.jpg"
+            "./assets/images/projects/testes1/teste.jpg",
+            "./assets/images/projects/testes1/teste2.jpg",
+            "./assets/images/projects/testes1/teste3.jpg"
             /* Exemplo:
             "./assets/projects/celene/01.webp",
             "./assets/projects/celene/02.webp",
@@ -25,9 +25,9 @@ export const projects = [
         description: "Dashboard para análise visual de vendas, indicadores e comparação de dados.",
         technologies: ["JAVASCRIPT", "CHART.JS", "EXCEL"],
         images: [
-            "../../assets/images/projects/testes1/teste.jpg",
-            "../../assets/images/projects/testes1/teste2.jpg",
-            "../../assets/images/projects/testes1/teste3.jpg"
+            "./assets/images/projects/testes1/teste.jpg",
+            "./assets/images/projects/testes1/teste2.jpg",
+            "./assets/images/projects/testes1/teste3.jpg"
         ],
         github: "#",
         preview: "#"
@@ -39,9 +39,9 @@ export const projects = [
         description: "Experimentos e automações desenvolvidos para resolver tarefas repetitivas.",
         technologies: ["PYTHON", "PLAYWRIGHT", "AUTOMATION"],
         images: [
-            "../../assets/images/projects/testes1/teste.jpg",
-            "../../assets/images/projects/testes1/teste2.jpg",
-            "../../assets/images/projects/testes1/teste3.jpg"
+            "./assets/images/projects/testes1/teste.jpg",
+            "./assets/images/projects/testes1/teste2.jpg",
+            "./assets/images/projects/testes1/teste3.jpg"
         ],
         github: "#",
         preview: "#"
@@ -53,9 +53,9 @@ export const projects = [
         description: "Projeto experimental focado em desenvolvimento web e experiências digitais.",
         technologies: ["HTML", "CSS", "JAVASCRIPT"],
         images: [
-            "../../assets/images/projects/testes1/teste.jpg",
-            "../../assets/images/projects/testes1/teste2.jpg",
-            "../../assets/images/projects/testes1/teste3.jpg"
+            "./assets/images/projects/testes1/teste.jpg",
+            "./assets/images/projects/testes1/teste2.jpg",
+            "./assets/images/projects/testes1/teste3.jpg"
         ],
         github: "#",
         preview: "#"
