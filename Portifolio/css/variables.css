@@ -1,0 +1,62 @@
+:root {
+/*CORES*/
+
+    --color-bg: #060907;
+    --color-bg-secondary: #0b110d;
+    --color-bg-panel: #101710;
+
+    --color-text: #d7e3d8;
+    --color-text-secondary: #7f9182;
+    --color-text-muted: #526055;
+
+    --color-accent: #39ff88;
+    --color-accent-soft: rgba(57, 255, 136, 0.10);
+
+    --color-border: rgba(180, 255, 200, 0.08);
+    --color-border-accent: rgba(57, 255, 136, 0.25);
+
+/*TIPOGRAFIA*/
+
+    --font-main: Arial, Helvetica, sans-serif;
+    --font-tech: "Courier New", Courier, monospace;
+
+
+/*TAMANHOS*/
+
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-md: 1rem;
+    --text-lg: 1.25rem;
+    --text-xl: 2rem;
+    --text-xxl: 3.5rem;
+
+
+/* ESPAÇAMENTO*/
+
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 2rem;
+    --space-lg: 4rem;
+    --space-xl: 6rem;
+
+/* LAYOUT*/
+
+    --container-width: 1200px;
+    --header-height: 72px;
+
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+
+/*EFEITOS*/
+
+    --transition-fast: 0.15s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+
+    --shadow-panel:
+        0 10px 40px rgba(0, 0, 0, 0.4);
+
+    --glow-accent:
+        0 0 20px rgba(57, 255, 136, 0.12);
+}
