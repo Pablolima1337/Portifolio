@@ -1,29 +1,63 @@
 export const projects = [
     {
-        id: "celene-ai",
         number: "01",
-        title: "CELENE AI",
-        description:
-            "Assistente inteligente experimental para automação e interação com sistemas.",
-        technologies: [
-            "Python",
-            "JavaScript",
-            "AI"
+        category: "AI / AUTOMATION",
+        title: "CELENE",
+        description: "Assistente pessoal desenvolvido para interação por voz, automação e integração com ferramentas.",
+        technologies: ["PYTHON", "AI", "VOICE"],
+        images: [
+            "../../assets/images/projects/testes1/teste.jpg",
+            "../../assets/images/projects/testes1/teste2.jpg",
+            "../../assets/images/projects/testes1/teste3.jpg"
+            /* Exemplo:
+            "./assets/projects/celene/01.webp",
+            "./assets/projects/celene/02.webp",
+            "./assets/projects/celene/03.webp",
+            "./assets/projects/celene/04.webp"*/
         ],
-        status: "Experimental"
+        github: "#",
+        preview: "#"
     },
-
     {
-        id: "data-lab",
         number: "02",
-        title: "DATA LAB",
-        description:
-            "Experimentos envolvendo dados, visualização e automação de processos.",
-        technologies: [
-            "Python",
-            "Data",
-            "Automation"
+        category: "DASHBOARD / DATA",
+        title: "SALES DASHBOARD",
+        description: "Dashboard para análise visual de vendas, indicadores e comparação de dados.",
+        technologies: ["JAVASCRIPT", "CHART.JS", "EXCEL"],
+        images: [
+            "../../assets/images/projects/testes1/teste.jpg",
+            "../../assets/images/projects/testes1/teste2.jpg",
+            "../../assets/images/projects/testes1/teste3.jpg"
         ],
-        status: "Development"
+        github: "#",
+        preview: "#"
+    },
+    {
+        number: "03",
+        category: "AUTOMATION",
+        title: "AUTOMATION LAB",
+        description: "Experimentos e automações desenvolvidos para resolver tarefas repetitivas.",
+        technologies: ["PYTHON", "PLAYWRIGHT", "AUTOMATION"],
+        images: [
+            "../../assets/images/projects/testes1/teste.jpg",
+            "../../assets/images/projects/testes1/teste2.jpg",
+            "../../assets/images/projects/testes1/teste3.jpg"
+        ],
+        github: "#",
+        preview: "#"
+    },
+    {
+        number: "04",
+        category: "WEB",
+        title: "PROJECT FOUR",
+        description: "Projeto experimental focado em desenvolvimento web e experiências digitais.",
+        technologies: ["HTML", "CSS", "JAVASCRIPT"],
+        images: [
+            "../../assets/images/projects/testes1/teste.jpg",
+            "../../assets/images/projects/testes1/teste2.jpg",
+            "../../assets/images/projects/testes1/teste3.jpg"
+        ],
+        github: "#",
+        preview: "#"
     }
 ];

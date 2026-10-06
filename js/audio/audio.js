@@ -11,7 +11,7 @@ const volumes = {
     entrance: 0.25,
     loading: 0.15,
     click: 0.10,
-    hover: 0.05,
+    hover: 0.05, 
     open: 0.25
 }
 

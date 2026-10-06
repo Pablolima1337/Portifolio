@@ -1,10 +1,45 @@
 let isTransitioning = false;
 
+const hero = document.querySelector("#home");
+const about = document.querySelector("#about");
+
 /* Transitions */
 
 export function initTransitions() {
-    document.body.classList.add(
-        "page-ready"
+    document.body.classList.add("page-ready");
+    if (!hero || !about) {
+        return;
+    }
+    window.addEventListener(
+        "scroll",
+        handleScroll,
+        { passive: true }
+    );
+    handleScroll();
+}
+
+/* Scroll */
+
+function handleScroll() {
+    if (!hero || !about) {
+        return;
+    }
+    const scrollY = window.scrollY;
+    const viewportHeight = window.innerHeight;
+    const progress = Math.min(
+        Math.max(
+            scrollY / viewportHeight,
+            0
+        ),
+        1
+    );
+    hero.style.setProperty(
+        "--scroll-progress",
+        progress
+    );
+    about.style.setProperty(
+        "--scroll-progress",
+        progress
     );
 }
 

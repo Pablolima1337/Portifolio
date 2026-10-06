@@ -6,8 +6,12 @@ import { initGlitch } from "./effects/glitch.js";
 import { initCRT } from "./effects/crt.js";
 import { initTransitions } from "./effects/transitions.js";
 import { initAudio, playSound } from "./audio/audio.js";
+import { technologies } from "./data/technologies.js";
 
 /* PROJETOS */
+
+let currentProjectPage = 0;
+const projectsPerPage = 3;
 
 function renderProjects() {
     const container = document.querySelector(".projects");
@@ -16,29 +20,254 @@ function renderProjects() {
         return;
     }
 
-    container.innerHTML = projects.map(project => {
-        return `
-            <article class="project-card">
-                <span class="project-card__number">
-                    ${project.number}
-                </span>
+    const totalPages = Math.ceil(projects.length / projectsPerPage);
 
-                <h3 class="project-card__title">
-                    ${project.title}
-                </h3>
+    if (currentProjectPage >= totalPages) {
+        currentProjectPage = totalPages - 1;
+    }
 
-                <p class="project-card__description">
-                    ${project.description}
-                </p>
-            </article>
-        `;
-    }).join("");
+    const start = currentProjectPage * projectsPerPage;
+    const visibleProjects = projects.slice(
+        start,
+        start + projectsPerPage
+    );
+
+    container.innerHTML = `
+        <div class="projects__grid">
+            ${visibleProjects.map(project => `
+                <article class="project-card">
+                    <span class="project-card__number">
+                        ${project.number}
+                    </span>
+
+                    <div class="project-card__content">
+                        <span class="project-card__category">
+                            ${project.category}
+                        </span>
+
+                        <h3 class="project-card__title">
+                            ${project.title}
+                        </h3>
+
+                        <p class="project-card__description">
+                            ${project.description}
+                        </p>
+
+                        <div class="project-card__technologies">
+                            ${project.technologies.map(technology => `
+                                <span>${technology}</span>
+                            `).join("")}
+                        </div>
+                    </div>
+
+                    <div class="project-card__preview">
+                        <div class="project-card__files">
+                            ${project.images.length
+                                ? project.images.slice(0, 3).map((image, index) => `
+                                    <div class="project-card__file project-card__file--${index + 1}">
+                                        <img src="${image}" alt="${project.title} — imagem ${index + 1}">
+                                        <span>IMG_${String(index + 1).padStart(2, "0")}</span>
+                                    </div>
+                                `).join("")
+                                : `
+                                    <div class="project-card__empty">
+                                        NO PREVIEW
+                                    </div>
+                                `
+                            }
+                        </div>
+                    </div>
+                        <div class="project-card__actions">
+                            <a href="${project.github}" target="_blank" rel="noopener noreferrer" class="project-card__button">
+                                [ GITHUB ↗ ]
+                            </a>
+                            <a href="${project.preview}" target="_blank" rel="noopener noreferrer" class="project-card__button project-card__button--primary">
+                                [ ABRIR PROJETO → ]
+                            </a>
+                        </div>
+                </article>
+            `).join("")}
+        </div>
+
+        ${
+            projects.length > projectsPerPage
+                ? `
+                    <div class="projects__pagination">
+
+                        <button
+                            type="button"
+                            class="projects__prev tech-text"
+                            ${currentProjectPage === 0 ? "disabled" : ""}
+                        >
+                            ← PREV
+                        </button>
+
+                        <span class="projects__counter tech-text">
+                            ${String(currentProjectPage + 1).padStart(2, "0")}
+                            /
+                            ${String(totalPages).padStart(2, "0")}
+                        </span>
+
+                        <button
+                            type="button"
+                            class="projects__next tech-text"
+                            ${currentProjectPage === totalPages - 1 ? "disabled" : ""}
+                        >
+                            NEXT →
+                        </button>
+
+                    </div>
+                `
+                : ""
+        }
+    `;
+
+    const previous = container.querySelector(".projects__prev");
+    const next = container.querySelector(".projects__next");
+
+    previous?.addEventListener("click", () => {
+        if (currentProjectPage > 0) {
+            currentProjectPage--;
+            renderProjects();
+        }
+    });
+
+    next?.addEventListener("click", () => {
+        if (currentProjectPage < totalPages - 1) {
+            currentProjectPage++;
+            renderProjects();
+        }
+    });
+}
+
+function initProjectPreviews() {
+    document.querySelectorAll(".project-card__files").forEach(files => {
+        const project = files.closest(".project-card");
+        const number = project.querySelector(".project-card__number")?.textContent.trim();
+        const data = projects.find(item => item.number === number);
+
+        if (!data || data.images.length < 2) {
+            return;
+        }
+
+        let current = 0;
+
+        function render() {
+            const images = data.images;
+            const total = images.length;
+
+            const positions = [
+                (current - 1 + total) % total,
+                current,
+                (current + 1) % total
+            ];
+
+            files.innerHTML = positions.map((imageIndex, position) => `
+                <div class="project-card__file project-card__file--${position + 1}">
+                    <img src="${images[imageIndex]}" alt="${data.title} — imagem ${imageIndex + 1}">
+                    <span>IMG_${String(imageIndex + 1).padStart(2, "0")}</span>
+                </div>
+            `).join("");
+        }
+
+        render();
+
+        setInterval(() => {
+            files.classList.add("is-changing");
+
+            setTimeout(() => {
+                current = (current + 1) % data.images.length;
+                render();
+
+                requestAnimationFrame(() => {
+                    files.classList.remove("is-changing");
+                });
+            }, 700);
+        }, 4500);
+    });
+}
+
+
+// Tecnologias
+function renderTechnologies() {
+    const container = document.querySelector(".about__technology-grid");
+
+    if (!container) {
+        return;
+    }
+
+    container.innerHTML = technologies.map((technology, index) => `
+        <div class="about__technology">
+
+            <div class="about__technology-icon">
+                <img
+                    src="./assets/icons/${technology.icon}"
+                    alt="${technology.name}"
+                >
+            </div>
+
+            <div class="about__technology-info">
+                <span>${technology.name}</span>
+                <small>${technology.category}</small>
+            </div>
+        </div>
+    `).join("");
+}
+
+function initTerminalCursor() {
+    document.querySelectorAll(".contact__field input, .contact__field textarea").forEach(input => {
+        const cursor = document.createElement("span");
+        cursor.className = "terminal-cursor";
+        input.parentElement.appendChild(cursor);
+
+            const update = () => {
+                if (document.activeElement !== input) {
+                    cursor.style.display = "none";
+                    return;
+                }
+                
+                const style = getComputedStyle(input);
+                const text = input.value.substring(0, input.selectionStart);
+                
+                const mirror = document.createElement("span");
+                
+                mirror.style.cssText = `
+                    position:absolute;
+                    visibility:hidden;
+                    white-space:pre;
+                    font:${style.font};
+                    letter-spacing:${style.letterSpacing};
+                `;
+                
+                mirror.textContent = text || "";
+                input.parentElement.appendChild(mirror);
+                
+                const paddingLeft = parseFloat(style.paddingLeft);
+                const paddingTop = parseFloat(style.paddingTop);
+                const lineHeight = parseFloat(style.lineHeight);
+                
+                cursor.style.left = `${input.offsetLeft + paddingLeft + mirror.offsetWidth}px`;
+                cursor.style.top = `${input.offsetTop + paddingTop + (lineHeight - cursor.offsetHeight) / 2}px`;
+                cursor.style.display = "block";
+                
+                mirror.remove();
+            };
+
+        input.addEventListener("focus", update);
+        input.addEventListener("blur", update);
+        input.addEventListener("input", update);
+        input.addEventListener("keyup", update);
+        input.addEventListener("click", update);
+    });
 }
 
 /* Initialization */
 
 function init() {
     renderProjects();
+    initProjectPreviews();
+    renderTechnologies();
+    initTerminalCursor();
     initNavigation();
     initWindows();
     initModal();
